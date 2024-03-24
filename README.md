@@ -254,6 +254,13 @@ This provided a seamless integration of diverse compute architectures, including
 
 While attempting to install the necessary dependencies on platforms like Google Colab, we encountered recurring errors indicating that the available RAM resources were fully utilized. This limitation significantly hindered our progress and impeded the smooth execution of our project tasks. However, upon transitioning to Intel Developer Cloud, we experienced a stark contrast in performance and reliability. The infrastructure provided by Intel Developer Cloud facilitated seamless implementation without encountering any resource constraints or errors related to memory exhaustion. This ensured a hassle-free development environment, enabling us to focus solely on the task at hand and accelerate our project timelines efficiently.
 
+### Colab Failure
+![Screenshot 2024-03-24 170208](https://github.com/swastikbanerjee/oneAPI_dreamTeam/assets/108891810/0d737b28-1dd6-4e5c-be34-c0a02238899f)
+
+### Dev Cloud Intel
+![Screenshot 2024-03-24 170511](https://github.com/swastikbanerjee/oneAPI_dreamTeam/assets/108891810/1c08d614-ae27-40d2-b899-660e9834d78d)
+
+
 # Intel’s Neural-Chat in Our Project 💭
 
 Intel's Neural Chat model, designated as **'Intel/neural-chat-7b-v3-1'**, stands out as a powerful conversational AI model designed to understand and respond to natural language queries effectively. In our project, this model played a pivotal role in dynamically generating content for our PowerPoint presentations. 
@@ -266,5 +273,33 @@ The synergy between the simple chatbot and the advanced Neural Chat model was ev
 1. By querying the Neural Chat model with prompts tailored to our specific needs, such as generating presentation titles, crafting table of contents, and providing slide content, we were able to efficiently curate the presentation content.  
 2. Additionally, both components played a crucial role in summary generation, providing concise and informative summaries based on user input. 
 3. Moreover, one notable advantage of using Intel's Neural Chat model is its accessibility and cost-effectiveness. Unlike many advanced AI models that require costly subscriptions or licensing fees, Intel's model is freely available for use. This accessibility not only encourages widespread adoption but also enables developers and researchers to leverage its capabilities without financial constraints. 
-The model's documentation is clear and straightforward, making it easy for users to understand its functionalities and integrate it into their projects seamlessly. 
+The model's documentation is clear and straightforward, making it easy for users to understand its functionalities and integrate it into their projects seamlessly.
+
+# Performance Comparison: Keyword Generation on Colab vs. Intel Extension for Scikit-Learn
+
+### First Run
+Upon comparing the keyword generation process between Colab and Intel DevCloud with Intel Extension for Scikit-learn, notable differences in performance metrics were observed. 
+1. In the very initial run on Intel DevCloud, the keyword generation process took approximately 1.05 seconds to complete. During this time, the CPU usage was relatively low at 3.1%, indicating efficient utilization of computational resources. However, the memory usage was measured at 12.9%, suggesting moderate memory consumption.
+2. In contrast, the initial run on Colab resulted in a longer execution time of approximately 1.63 seconds. Additionally, the CPU usage during this process was significantly higher, peaking at 68.2%. This indicates a more intensive computational load on Colab compared to Intel DevCloud. Despite the high CPU usage, the memory usage on Colab was measured at 7.4%, which is lower than that of Intel DevCloud.
+
+#### Graphical Comparisons
+![Screenshot 2024-03-24 235642](https://github.com/swastikbanerjee/oneAPI_dreamTeam/assets/108891810/d9378afd-348a-454b-be31-d72f5be73228)
+![Screenshot 2024-03-24 235659](https://github.com/swastikbanerjee/oneAPI_dreamTeam/assets/108891810/5642ffbb-9713-4f27-9d79-ffbb72dfe398)
+![Screenshot 2024-03-24 235715](https://github.com/swastikbanerjee/oneAPI_dreamTeam/assets/108891810/45248955-37ac-47c1-8645-dd432c20ced9)
+
+
+### Run after a few trials
+
+1. On Colab, the keyword generation process took approximately 1.63 seconds to complete. During this time, the CPU usage peaked at 47.3%, indicating a moderate level of computational load. Additionally, the memory usage was measured at 7.3%.
+2. In contrast, on Intel DevCloud with Intel Extension for Scikit-learn, the same keyword generation task was completed in a significantly shorter time frame, with a runtime of 0.014 seconds. Furthermore, the CPU usage was substantially lower, reaching only 0.8%, suggesting efficient resource utilization. However, the memory usage was still, measuring at 12.9%.
+
+#### Graphical Comparisons  
+![Screenshot 2024-03-24 235822](https://github.com/swastikbanerjee/oneAPI_dreamTeam/assets/108891810/17823212-f6da-46d0-bb4c-909eab000994)
+![Screenshot 2024-03-24 235841](https://github.com/swastikbanerjee/oneAPI_dreamTeam/assets/108891810/dca4767f-ad9c-4e41-8246-b89b8d5b5bb8)
+![Screenshot 2024-03-24 235857](https://github.com/swastikbanerjee/oneAPI_dreamTeam/assets/108891810/70906807-ed85-4345-8db0-7c6061ecb0fc)
+
+
+
+These findings suggest that utilizing Intel DevCloud with Intel Extension for Scikit-learn can lead to faster execution times and more efficient CPU utilization compared to Colab. While both platforms successfully generated the same set of keywords, the Intel-based solution demonstrated superior performance, highlighting the potential benefits of leveraging specialized hardware and optimized software frameworks for data processing tasks.
+
 
