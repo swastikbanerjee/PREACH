@@ -295,7 +295,7 @@ Intel Extension for Scikit-learn is a component of the Intel® oneAPI AI Analyti
 
 ### Run after a few trials
 
-1. On Colab, the keyword generation process took approximately 1.63 seconds to complete. During this time, the CPU usage peaked at 47.3%, indicating a moderate level of computational load. Additionally, the memory usage was measured at 7.3%.
+1. On Colab, the keyword generation process took approximately 0.034 seconds to complete. During this time, the CPU usage peaked at 33.4%, indicating a moderate level of computational load. Additionally, the memory usage was measured at 10.8%.
 2. In contrast, on Intel DevCloud with Intel Extension for Scikit-learn, the same keyword generation task was completed in a significantly shorter time frame, with a runtime of 0.014 seconds. Furthermore, the CPU usage was substantially lower, reaching only 0.8%, suggesting efficient resource utilization. However, the memory usage was still, measuring at 12.9%.
 
 #### Graphical Comparisons  
