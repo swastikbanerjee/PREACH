@@ -217,3 +217,54 @@ def generate_summary(text):
     
       return fifteen_percent
    ```
+# Presentation Content Generation 🎥 📜
+In the subsequent step, we proceed with the generation of PowerPoint presentation content, a crucial aspect of our project. Utilizing the capabilities of Intel's NeuralChat, we dynamically curate the content for the presentation slides. This includes generating the presentation title, crafting a comprehensive table of contents, and providing relevant content for individual slides. By querying the model with specific prompts tailored to each element, we ensure that the generated presentation content accurately reflects the essence of the input document.
+
+```
+def generate_title(text):  
+    print("Generating Title...")
+    system_input = "You are a creative writing assistant. Your mission is to help users generate beautiful and thought provoking powerpoint presentation titles based on the text they input. Generate 1 title along with its meaning in not more than 1 line below ."
+    question = f"Can you generate a title based on the following topic:{text} for my powerpoint?"
+    response = generate_response(system_input, question)
+    return (response)
+
+def generate_tables1(text):
+    print("Generating Contents Table...")
+    text=preprocess_text(text)
+    question = f"I'm writing a document on the summary: {text}, and I need a table of contents with only 5 sections to organize the content effectively starting with '1. Introduction' and ending with    
+    '5.Conclusion'. Please generate the table of contents for me with exactly 5 items following the pattern mentioned."
+    response = chatbot.predict(question)
+    return response
+
+def generate_para(tablec,text): 
+    print("Generating paragraphs...")
+    system_input = "You are a creative writing assistant. Your mission is to help users generate detailed information and content based on a given table of contents and input topic. Make it creative,structured 
+    with bullet points and paragraphs and detailed information."
+    question = f"Can you generate one elaborate paragraph each for the table of contents {tablec} and based on the reference to the following summary:{text}"
+    response = generate_response(system_input, question)
+    return (response)
+
+```
+
+# Intel’s Developer Cloud 🌩️
+
+Utilizing Intel Developer Cloud, particularly through its OneAPI capabilities, significantly expedited our AI model development and deployment processes. By harnessing the power of Intel's cutting-edge CPU and XPU technologies, we experienced unparalleled speed and reliability in our computations and model training. This acceleration allowed us to iterate quickly, experiment with various model architectures, and fine-tune parameters, achieving optimal results in record time.  
+
+This provided a seamless integration of diverse compute architectures, including CPUs, and GPUs, 192 GB RAM, 220 GB of file storage, and even 120 days of free access to all Intel® oneAPI toolkits and components enabling us to leverage the full spectrum of hardware resources for our AI projects. The ease of use and accessibility of Intel Developer Cloud, combined with the comprehensive suite of tools and resources offered by OneAPI, streamlined our workflow and simplified infrastructure management. 
+
+While attempting to install the necessary dependencies on platforms like Google Colab, we encountered recurring errors indicating that the available RAM resources were fully utilized. This limitation significantly hindered our progress and impeded the smooth execution of our project tasks. However, upon transitioning to Intel Developer Cloud, we experienced a stark contrast in performance and reliability. The infrastructure provided by Intel Developer Cloud facilitated seamless implementation without encountering any resource constraints or errors related to memory exhaustion. This ensured a hassle-free development environment, enabling us to focus solely on the task at hand and accelerate our project timelines efficiently.
+
+# Intel’s Neural-Chat in Our Project 💭
+
+Intel's Neural Chat model, designated as **'Intel/neural-chat-7b-v3-1'**, stands out as a powerful conversational AI model designed to understand and respond to natural language queries effectively. In our project, this model played a pivotal role in dynamically generating content for our PowerPoint presentations. 
+- The chatbot from intel_extension_for_transformers offers a straightforward yet powerful solution for conversational interactions. With just a few lines of code, we could create a basic chatbot that responds to user input, providing a seamless conversational experience. In our project, this simple "hello world" program proved to be more than just a demonstration. It played a crucial role in content generation, offering a user-friendly interface for querying the Intel Neural Chat model.
+
+- Utilizing the **model_name = 'Intel/neural-chat-7b-v3-1'**, we instantiated the chatbot by loading the pre-trained model and tokenizer. This model, built upon advanced transformer architectures, is capable of generating elaborate responses with nuanced understanding, thanks to its training on extensive conversational datasets. When combined with the tokenizer, it enabled the chatbot to interpret user queries and generate precise, contextually relevant responses.
+
+The synergy between the simple chatbot and the advanced Neural Chat model was evident in our project workflow. Depending on the context and requirements, we leveraged either the basic chatbot or the more sophisticated Intel Neural Chat model to handle user queries effectively. 
+
+1. By querying the Neural Chat model with prompts tailored to our specific needs, such as generating presentation titles, crafting table of contents, and providing slide content, we were able to efficiently curate the presentation content.  
+2. Additionally, both components played a crucial role in summary generation, providing concise and informative summaries based on user input. 
+3. Moreover, one notable advantage of using Intel's Neural Chat model is its accessibility and cost-effectiveness. Unlike many advanced AI models that require costly subscriptions or licensing fees, Intel's model is freely available for use. This accessibility not only encourages widespread adoption but also enables developers and researchers to leverage its capabilities without financial constraints. 
+The model's documentation is clear and straightforward, making it easy for users to understand its functionalities and integrate it into their projects seamlessly. 
+
