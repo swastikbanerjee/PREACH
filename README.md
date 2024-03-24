@@ -263,7 +263,10 @@ While attempting to install the necessary dependencies on platforms like Google 
 
 # Intel’s Neural-Chat in Our Project 💭
 
+Intel collaborated with Hugging Face to develop Neural Chat. This collaboration leverages Hugging Face's expertise in natural language processing (NLP) and their extensive collection of pre-trained models, combined with Intel's AI technologies and hardware optimizations.
+
 Intel's Neural Chat model, designated as **'Intel/neural-chat-7b-v3-1'**, stands out as a powerful conversational AI model designed to understand and respond to natural language queries effectively. In our project, this model played a pivotal role in dynamically generating content for our PowerPoint presentations. 
+
 - The chatbot from intel_extension_for_transformers offers a straightforward yet powerful solution for conversational interactions. With just a few lines of code, we could create a basic chatbot that responds to user input, providing a seamless conversational experience. In our project, this simple "hello world" program proved to be more than just a demonstration. It played a crucial role in content generation, offering a user-friendly interface for querying the Intel Neural Chat model.
 
 - Utilizing the **model_name = 'Intel/neural-chat-7b-v3-1'**, we instantiated the chatbot by loading the pre-trained model and tokenizer. This model, built upon advanced transformer architectures, is capable of generating elaborate responses with nuanced understanding, thanks to its training on extensive conversational datasets. When combined with the tokenizer, it enabled the chatbot to interpret user queries and generate precise, contextually relevant responses.
@@ -277,8 +280,10 @@ The model's documentation is clear and straightforward, making it easy for users
 
 # Performance Comparison: Keyword Generation on Colab vs. Intel Extension for Scikit-Learn
 
+Intel Extension for Scikit-learn is a component of the Intel® oneAPI AI Analytics Toolkit. Upon comparing the keyword generation process between Colab and Intel DevCloud with Intel Extension for Scikit-learn, notable differences in performance metrics were observed. 
+
 ### First Run
-Upon comparing the keyword generation process between Colab and Intel DevCloud with Intel Extension for Scikit-learn, notable differences in performance metrics were observed. 
+
 1. In the very initial run on Intel DevCloud, the keyword generation process took approximately 1.05 seconds to complete. During this time, the CPU usage was relatively low at 3.1%, indicating efficient utilization of computational resources. However, the memory usage was measured at 12.9%, suggesting moderate memory consumption.
 2. In contrast, the initial run on Colab resulted in a longer execution time of approximately 1.63 seconds. Additionally, the CPU usage during this process was significantly higher, peaking at 68.2%. This indicates a more intensive computational load on Colab compared to Intel DevCloud. Despite the high CPU usage, the memory usage on Colab was measured at 7.4%, which is lower than that of Intel DevCloud.
 
