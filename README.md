@@ -37,11 +37,15 @@ Are you ready to streamline your presentations and make an impact like never bef
     - Method 2: Preprocessing Text for Keyword Extraction
     - Method 3: Preprocessing Text WordCloud Generation 
 - WordCloud Generation
-- Keyword Generation using TF-IDF 
+    - Visualizing Word Frequency
+- Keyword Generation using TF-IDF
 - Summary Generation 
     - Within 50 Words 
     - Extended Version
-- Sentiment Analysis  
+- Sentiment Analysis
+    - Smart Emotion Understanding
+    - Detailed Summary Analysis
+    - Report Generation
 - Presentation Content Generation
 - Presentation Creation
 - Streamlit Application
