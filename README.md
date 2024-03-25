@@ -30,8 +30,11 @@ Are you ready to streamline your presentations and make an impact like never bef
 - Keyword Generation using TF-IDF 
 - Summary Generation 
     - Within 50 Words 
-    - Extended Version 
+    - Extended Version
+- Sentiment Analysis  
 - Presentation Content Generation
+- Presentation Creation
+- Streamlit Application
 
 # Video-Audio to Transcript Converter 📹 ➡️ 📰
 1. **Audio Conversion**:  If the input file is a video, the first step is to extract the audio from the video file. This is necessary because the speech recognition library, SpeechRecognition, works with audio files. The provided function *convert_video_to_transcript* performs this task by utilizing the moviepy library to separate the audio track from the video file and save it as a temporary WAV audio file.
