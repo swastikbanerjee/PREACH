@@ -1,4 +1,4 @@
-# from intel_extension_for_transformers.neural_chat import build_chatbot
+from intel_extension_for_transformers.neural_chat import build_chatbot
 from sklearn.feature_extraction.text import TfidfVectorizer
 import emojis
 import nltk
@@ -28,13 +28,13 @@ import tempfile
 # nltk.download('punkt')
 # nltk.download('wordnet')
 
-# model_name = 'Intel/neural-chat-7b-v3-1'
+model_name = 'Intel/neural-chat-7b-v3-1'
 GOOGLE_API_KEY = 'AIzaSyBileOLS4Ys9Nk1X27OqBccsEmgxOWmV54'
-# model = transformers.AutoModelForCausalLM.from_pretrained(model_name)
-# tokenizer = transformers.AutoTokenizer.from_pretrained(model_name)
+model = transformers.AutoModelForCausalLM.from_pretrained(model_name)
+tokenizer = transformers.AutoTokenizer.from_pretrained(model_name)
 genai.configure(api_key=GOOGLE_API_KEY)
 modelG = genai.GenerativeModel('gemini-pro')
-# chatbot = build_chatbot()
+chatbot = build_chatbot()
 
 # Function to convert audio to transcript using SpeechRecognition
 def convert_audio_to_transcript(audio_path):
@@ -123,16 +123,16 @@ def calculate_percentage_of_words(transcript_text):
     # Calculate 15% of the total words
     fifteen_percent = int(total_words * (percentage / 100))
     return fifteen_percent
-# def generate_response(system_input, user_input): #neural chat
-#     # Format the input using the provided template
-#     prompt = f"### System:\n{system_input}\n### User:\n{user_input}\n### Assistant:\n"
-#     # Tokenize and encode the prompt
-#     inputs = tokenizer.encode(prompt, return_tensors="pt", add_special_tokens=False)
-#     # Generate a response
-#     outputs = model.generate(inputs, max_length=3500, num_return_sequences=1, pad_token_id = tokenizer.eos_token_id)
-#     response = tokenizer.decode(outputs[0], skip_special_tokens=True)
-#     # Extract only the assistant's response
-#     return response.split("### Assistant:\n")[-1]
+def generate_response(system_input, user_input): #neural chat
+    # Format the input using the provided template
+    prompt = f"### System:\n{system_input}\n### User:\n{user_input}\n### Assistant:\n"
+    # Tokenize and encode the prompt
+    inputs = tokenizer.encode(prompt, return_tensors="pt", add_special_tokens=False)
+    # Generate a response
+    outputs = model.generate(inputs, max_length=3500, num_return_sequences=1, pad_token_id = tokenizer.eos_token_id)
+    response = tokenizer.decode(outputs[0], skip_special_tokens=True)
+    # Extract only the assistant's response
+    return response.split("### Assistant:\n")[-1]
 def generate_summary(text): #Summary for ppt
     text=preprocess_textS(text)
 #     question = f"Can you generate a 50 word summary for the following paragraph: {text}?"
@@ -263,6 +263,8 @@ def process_input(input_data, val='Beige'):
     # analysis of summary
     analysis = get_analysis(summary_ext)
     content = 'Summary: '+ summary + '\n\n'+ 'Keywords: ' + str(keywords) + '\n\n' + title + '\n\n' + 'Table of Contents:\n'+ tablec +'\n\n'+ paras +  "\nAnalysis: " + analysis
+    with open('content.txt', 'w') as file:
+        file.write(content)
     # title_regex = r"Title: \"(.*?)\""
     title_regex = r"Title:\s*(.*)"
     meaning_regex = r"Meaning: (.*?)\n"
@@ -351,26 +353,24 @@ def main():
     # Input file uploader
     uploaded_file = st.file_uploader("Upload file", type=["mp4", "wav", "txt"])
     option = st.selectbox('Select PPT style',('Beige', 'Green', 'Blue', 'Grey', 'Red'))
-
-    if uploaded_file is not None:
-        # Process input and generate PPT
-        process_input(uploaded_file, option)
-
-        # Display generated PPT
-        st.markdown(f"## Generated PowerPoint Presentation...")
-#         if os.path.exists(generated_ppt_file_path):
-        # Read the content of the generated PPT file
-        with open('Preach.pptx', "rb") as f:
-            ppt_content = f.read()
-            
-            st.download_button(
-            label="Download your PPT!",
-            data=ppt_content,
-            file_name="Preach.pptx",
-            mime="application/vnd.openxmlformats-officedocument.presentationml.presentation")
-            
-#         else:
-#             st.error("Failed to generate PowerPoint presentation.")
+    if st.button('Submit'):
+        if uploaded_file is not None:
+            # Process input and generate PPT
+            st.markdown(f"### Take a walk while we generate your PPT...")
+            st.markdown(f"#### But be quick! because we are fast 🙃")
+            process_input(uploaded_file, option)
+            # Display generated PPT
+            st.markdown(f"## Generated PowerPoint Presentation...")      
+            # Read the content of the generated PPT file
+            with open('Preach.pptx', "rb") as f:
+                ppt_content = f.read()
+                st.download_button(
+                label="Click to Download!",
+                data=ppt_content,
+                file_name="Preach.pptx",
+                mime="application/vnd.openxmlformats-officedocument.presentationml.presentation")
+        else:
+            st.error("Failed to generate PowerPoint presentation.")
 
 if __name__ == "__main__":
     main()
