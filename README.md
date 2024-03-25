@@ -23,7 +23,10 @@ $PREACH$, with the tagline "From Chaos To Clarity," is an innovative platform de
 # What makes us SPECIAL? 🥇
 
 Our project isn't just about creating any old PowerPoint; it's about infusing your presentations with elegance and flair! With our platform, you can effortlessly elevate your slides with curated designs and templates that are guaranteed to make your audience sit up and take notice. 🎨✨ So why settle for ordinary when you can dazzle with extraordinary? Explore our range of themes and take your presentations from bland to grand!
+
+
 ![EXQUISITE PALETTE (1)](https://github.com/swastikbanerjee/PREACH/assets/108891810/95c88879-9087-4a1c-b8ee-91457ada20fe)
+
 ![EXQUISITE PALETTE](https://github.com/swastikbanerjee/PREACH/assets/108891810/42978a9c-01f6-41f4-acbf-9ea011851356)
 
 
