@@ -8,6 +8,10 @@ $PREACH$, with the tagline "From Chaos To Clarity," is an innovative platform de
  The name $PREACH$ embodies our mission to transition from chaos to clarity in presentations. Often lengthy videos, or audios are too tedious to watch or listen to. A short and simple summary goes a long way into understanding the overall appeal of the multimedia in question.  By summarizing lengthy content into key points and structuring it effectively, PREACH ensures that your message is delivered with precision, one where you can Preach your ideas with impact.
 
 ## Why use PREACH❓
+### Modality Independece :heart_eyes:
+- `Video` you take it, we make it! 
+- `Audio` you talk, we listen!
+- `Text` you write, we generate!
 ### The Effectiveness of Summaries and Presentations :memo:
  The effectiveness of summaries and PowerPoint presentations lies in their ability to deliver information concisely. PREACH automates this process, facilitating better retention of information and enhancing audience understanding.  
 ### Time-saving Automation 🕐
@@ -15,10 +19,16 @@ $PREACH$, with the tagline "From Chaos To Clarity," is an innovative platform de
 ### Accessibility :woman_in_tuxedo: :person_in_tuxedo:
  PREACH is accessible to individuals, regardless of their expertise in presentation. It's easy to use procedure ensures that users from diverse backgrounds can benefit from its features.
 
+---
 
+## Sneak Peek :eyes:
+
+https://github.com/swastikbanerjee/PREACH/assets/155450322/3f37d502-6743-44c3-aecb-894c6797d2e1
+
+---
 
 # 	:flight_departure: Get Started! :tada: 
-Are you ready to streamline your presentations and make an impact like never before? Dive into PREACH and transform chaos into clarity today! ❇️
+Are you ready to streamline your presentations and make an impact like never before? Dive into PREACH and transform chaos into clarity today!!! :stars:
 
 # Project Workflow :car:
 - Video-Audio to Transcript Converter 
