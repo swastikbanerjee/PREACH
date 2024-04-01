@@ -29,7 +29,7 @@ import tempfile
 # nltk.download('wordnet')
 
 model_name = 'Intel/neural-chat-7b-v3-1'
-GOOGLE_API_KEY = 'AIzaSyBileOLS4Ys9Nk1X27OqBccsEmgxOWmV54'
+GOOGLE_API_KEY = pass #secret api key
 model = transformers.AutoModelForCausalLM.from_pretrained(model_name)
 tokenizer = transformers.AutoTokenizer.from_pretrained(model_name)
 genai.configure(api_key=GOOGLE_API_KEY)
