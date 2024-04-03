@@ -1,4 +1,3 @@
-from intel_extension_for_transformers.neural_chat import build_chatbot
 from sklearn.feature_extraction.text import TfidfVectorizer
 import emojis
 import nltk
@@ -28,13 +27,10 @@ import tempfile
 # nltk.download('punkt')
 # nltk.download('wordnet')
 
-model_name = 'Intel/neural-chat-7b-v3-1'
-GOOGLE_API_KEY = pass #secret api key
-model = transformers.AutoModelForCausalLM.from_pretrained(model_name)
-tokenizer = transformers.AutoTokenizer.from_pretrained(model_name)
+GOOGLE_API_KEY = #secret
 genai.configure(api_key=GOOGLE_API_KEY)
 modelG = genai.GenerativeModel('gemini-pro')
-chatbot = build_chatbot()
+
 
 # Function to convert audio to transcript using SpeechRecognition
 def convert_audio_to_transcript(audio_path):
@@ -63,8 +59,7 @@ def handle_input(input_data):
     # Save the uploaded file to the temporary directory
     file_path = os.path.join(temp_dir, input_data.name)
     with open(file_path, "wb") as f:
-        f.write(input_data.read())
-        
+        f.write(input_data.read())  
     if ext == 'mp4' or ext == 'avi':
         # Input is a video file
         transcript = convert_video_to_transcript(file_path)
@@ -123,51 +118,31 @@ def calculate_percentage_of_words(transcript_text):
     # Calculate 15% of the total words
     fifteen_percent = int(total_words * (percentage / 100))
     return fifteen_percent
-def generate_response(system_input, user_input): #neural chat
-    # Format the input using the provided template
-    prompt = f"### System:\n{system_input}\n### User:\n{user_input}\n### Assistant:\n"
-    # Tokenize and encode the prompt
-    inputs = tokenizer.encode(prompt, return_tensors="pt", add_special_tokens=False)
-    # Generate a response
-    outputs = model.generate(inputs, max_length=3500, num_return_sequences=1, pad_token_id = tokenizer.eos_token_id)
-    response = tokenizer.decode(outputs[0], skip_special_tokens=True)
-    # Extract only the assistant's response
-    return response.split("### Assistant:\n")[-1]
+
 def generate_summary(text): #Summary for ppt
     text=preprocess_textS(text)
-#     question = f"Can you generate a 50 word summary for the following paragraph: {text}?"
-#     response = chatbot.predict(question)
     response = modelG.generate_content(f"Can you generate a 50 word summary for the following paragraph: {text}?")
     return response.text
 def generate_summary_ext(text,fifteen_percent): #Summary for ppt 15%
     text=preprocess_textS(text)
-#     question = f"Can you generate a {fifteen_percent} word summary for the following paragraph: {text}?"
-#     response = chatbot.predict(question)
     response = modelG.generate_content(f"Can you generate a {fifteen_percent} word summary for the following paragraph: {text}?")
     return response.text
 def generate_title(text): #title
-#     system_input = "You are a creative writing assistant. Your mission is to help users generate beautiful and thought provoking powerpoint presentation titles based on the text they input. Generate a title with a very short description of its meaning below. Format like-Title: ... Meaning: ..."
-#     question = f"Can you generate a title based on the following topic:{text} for my powerpoint?"
-#     response = generate_response(system_input, question)
     response = modelG.generate_content(f'''System: You are a creative writing assistant. Your mission is to help users generate beautiful and thought provoking powerpoint presentation titles based on the text they input. Generate a title with a very short description of its meaning below. Format like-Title: ... Meaning: ... (The meaning should be written in less than 30 words)
                                     Can you generate a title based on the following topic:{text} for my powerpoint?''')
     return response.text
 def generate_table(text): #using neuralchat chatbot
     text=preprocess_textS(text)
     question = f"I'm writing a document on the summary: {text}, and I need a table of contents with only 5 sections to organize the content effectively starting with '1. Introduction' and ending with '5.Conclusion'.. Please generate the table of contents for me with exactly 5 items following the pattern mentioned."
-#     response = chatbot.predict(question)
     response = modelG.generate_content(question)
     return response.text
-def generate_para(tablec,text): #using neural chat
-#     system_input = "You are a creative writing assistant. Your mission is to help users generate detailed information and content based on a given table of contents and input topic. Make it creative,structured with bullet points and paragraphs and detailed information."
-#     question = f"Can you generate one elaborate paragraph each for the table of contents {tablec} and based on the reference to the following summary:{text}"
-#     response = generate_response(system_input, question)
+def generate_para(tablec,text):
     response = modelG.generate_content(f'''
     You are a creative writing assistant. Your mission is to help users generate detailed information and content based on a given table of contents and input topic. Make it creative,structured with bullet points and paragraphs and detailed information."
     question = f"Can you generate one elaborate paragraph each for the table of contents {tablec} and based on the reference to the following summary:{text}
     ''')
     return response.text
-def generate_paras(tablec,text):  #using gemini api
+def generate_paras(tablec,text):
     response = modelG.generate_content(f"can you generate one big elaborate paragraph of minimum 5 lines for each based on the following table of contents: {tablec} and refering to the summary {text}? Try to include all details present in the summary as well as additional relevant information as you can add. The format should be Slide 1 followed by bullet points, Slide 2 followed by bullet points, etc. for powerpoint presentation. Make it creative with detailed information with minimum 3 points for each slide. YOU MUST NOT make the content in the bullet points bold.")
     return response.text
 def get_analysis(sum):
