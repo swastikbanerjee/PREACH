@@ -1,4 +1,6 @@
-# Welcome to PREACH: Streamline Your Presentations! 
+# WINNER OF INTEL oneAPI Hackathon 2024
+
+## Welcome to PREACH: Streamline Your Presentations! 
 
 ### :sparkles: Your ultimate solution for transforming Chaos into Clarity through your presentations! 🚀
 
